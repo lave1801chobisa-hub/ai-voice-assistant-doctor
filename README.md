@@ -30,3 +30,32 @@ Pydantic (Data validation & FHIR-aligned schemas)
 Pandas & PyPDF / PyPDFium2 (Report and data processing)
 
 OpenCV & Pydicom(Medical image and DICOM rendering)
+
+ [ USER INPUT ]
+   │
+   ├─► Voice Recording / Audio File ──► Groq Whisper API ──────────► Transcribed Text
+   │                                                                     │
+   ├─► Images / DICOM Scans ─────────► OpenCV / Pydicom ───────────► Processed Frames & HU Windows
+   │                                                                     │
+   ├─► Dynamic Videos ───────────────► Keyframe Extraction ─────────► Video Frame Slices
+   │                                                                     │
+   └─► Lab / Dialysis Reports ───────► PDF/CSV Ingestion ───────────► KDIGO 2024 Audit Engine
+                                                                         │
+                                                                         ▼
+                                                            [ DOMAIN ROUTER ]
+                                                            (Oncology, Neuro, Thorax, Derm, etc.)
+                                                                         │
+                                                                         ▼
+                                                            [ GOOGLE GEMINI AI Core ]
+                                                            (gemini-3.5-flash)
+                                                                         │
+                                                                         ▼
+                                                            [ SAFETY & JSON REPAIR ]
+                                                            (Schema Validation & Safety Controls)
+                                                                         │
+                                                                         ▼
+                                                            [ FINAL OUTPUT GENERATION ]
+                                                                 │              │
+                                                                 ▼              ▼
+                                                           Visual Report   Doctor TTS Voice
+                                                            Display         Briefing (.mp3)
